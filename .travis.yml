@@ -1,0 +1,8 @@
+language: csharp
+os: windows
+mono: none
+solution: ArchUnit.sln
+install:
+  - PowerShell -Command 'Set-ExecutionPolicy -ExecutionPolicy RemoteSigned'
+script:
+  - PowerShell -File build.ps1
