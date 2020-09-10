@@ -9,3 +9,5 @@ script:
 deploy:
   provider: script
   script: PowerShell -File deploy.ps1
+  on:
+    tags: true
