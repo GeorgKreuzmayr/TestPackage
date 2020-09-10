@@ -5,7 +5,7 @@ solution: ArchUnit.sln
 install:
   - PowerShell -Command 'Set-ExecutionPolicy -ExecutionPolicy RemoteSigned'
 script:
-  - PowerShell -File build.ps1 -v_t $VAR_TEST
+  - PowerShell -File build.ps1 -v_t "$VAR_TEST"
 deploy:
   provider: script
   script: PowerShell -File deploy.ps1 -tag $TRAVIS_TAG
