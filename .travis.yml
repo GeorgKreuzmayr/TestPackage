@@ -8,6 +8,6 @@ script:
   - PowerShell -File build.ps1
 deploy:
   provider: script
-  script: PowerShell -File deploy.ps1
+  script: PowerShell -File deploy.ps1 -tag $TRAVIS_TAG
   on:
     tags: true

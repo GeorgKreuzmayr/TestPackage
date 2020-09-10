@@ -1,10 +1,12 @@
-echo "THIS IS THE TRAVIS TAG ATTTENNTTTIOOONNNNK $TAVIS_TAG"
+param(
+[string]$tag = ""
+)
 
-if($TRAVIS_TAG -eq $null)
+if($tag -eq $null)
 {
     echo "no travis tag on deploy"
 }
 else
 {
-    echo "found travis tag on deploy: $TRAVIS_TAG"
+    echo "found travis tag on deploy: $tag"
 }
