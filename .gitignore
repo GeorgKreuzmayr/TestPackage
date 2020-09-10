@@ -58,3 +58,5 @@ list_license.ps1
 **/LicenseSources/
 
 *.user
+
+dep/
