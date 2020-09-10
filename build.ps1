@@ -1,5 +1,7 @@
 New-Variable -Name "VERSION_PATTERN" -Value "^[0-9]+\.[0-9]+\.[0-9]"
 
+echo "THIS IS THE VAR TEST VALUE LOOOOOKKKK::: $VAR_TEST"
+
 if("$TRAVIS_TAG" -eq "")
 {
     echo "no travis tag"
