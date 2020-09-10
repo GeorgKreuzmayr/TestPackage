@@ -1,7 +1,7 @@
-New-Variable -Name "VERSION_PATTERN" -Value "^[0-9]+\.[0-9]+\.[0-9]"
 param(
 [string]$v_t = ""
 )
+New-Variable -Name "VERSION_PATTERN" -Value "^[0-9]+\.[0-9]+\.[0-9]"
 echo "THIS IS THE VAR TEST VALUE LOOOOOKKKK::: $v_t"
 
 if("$TRAVIS_TAG" -eq "")
