@@ -1,4 +1,4 @@
-if("$TRAVIS_TAG" -eq "")
+if($TRAVIS_TAG -eq $null)
 {
     echo "no travis tag on deploy"
 }
