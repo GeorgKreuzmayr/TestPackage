@@ -6,7 +6,7 @@ param(
 if ("" -eq "")
 {
     Write-Output "Key: $apiKey | Source: $source"
-    dotnet nuget push ./TestPackage/nupkgs/Georg.TestPackage.*.nupkg -k $apiKey -s $source
+    dotnet nuget push ./TestPackage/TestPackage/nupkgs/Georg.TestPackage.*.nupkg -k $apiKey -s $source
 }
 else
 {
