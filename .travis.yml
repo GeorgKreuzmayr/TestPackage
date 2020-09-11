@@ -1,13 +1,20 @@
 language: csharp
-os: windows
-mono: none
+stages:
+  - test
+  - deploy
 solution: ArchUnit.sln
-install:
-  - PowerShell -Command 'Set-ExecutionPolicy -ExecutionPolicy RemoteSigned'
-script:
-  - PowerShell -File build.ps1 -v_t "$VAR_TEST"
-deploy:
-  provider: script
-  script: PowerShell -File deploy.ps1 -tag $TRAVIS_TAG
-  on:
-    tags: true
+jobs:
+  include:
+    - stage: test
+      mono: none
+      os: linux
+      script: ./Travis/test_linux.sh
+    - stage: test
+      mono: none
+      os: windows
+      script: PowerShell -File Travis/test_windows.ps1
+    - stage: deploy
+      script: PowerShell -File deploy.ps1
+      on:
+        tags: true
+        all_branches: true
