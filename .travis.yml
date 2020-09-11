@@ -11,22 +11,20 @@ jobs:
       os: linux
       script: chmod +x ./Travis/test_linux.sh && ./Travis/test_linux.sh
     - stage: test
-      dotnet: 2.2.402
       mono: none
       os: windows
-      before_install:
+      before_script:
         - choco install dotnetcore-sdk --version=2.2.402
+        - PowerShell -Command 'Set-ExecutionPolicy -ExecutionPolicy RemoteSigned'
       script: 
-      - PowerShell -Command 'Set-ExecutionPolicy -ExecutionPolicy RemoteSigned'
       - PowerShell -File Travis/test_windows.ps1
     - stage: deploy
-      dotnet: 2.2.402
       mono: none
       os: windows
-      before_install:
+      before_script:
         - choco install dotnetcore-sdk --version=2.2.402
+        - PowerShell -Command 'Set-ExecutionPolicy -ExecutionPolicy RemoteSigned'
       script:
-      - PowerShell -Command 'Set-ExecutionPolicy -ExecutionPolicy RemoteSigned'
       - PowerShell -File Travis/deploy.ps1 -tag "$TAVIS_TAG"
       on:
         tags: true
