@@ -1,16 +1,13 @@
 language: csharp
-stages:
-  - test
-  - deploy
 solution: ArchUnit.sln
 jobs:
   include:
-    - stage: test
+    - stage: linux_build
       dotnet: 2.2.402
       mono: none
       os: linux
       script: chmod +x ./Travis/test_linux.sh && ./Travis/test_linux.sh
-    - stage: test
+    - stage: windows_build
       mono: none
       os: windows
       before_script:
