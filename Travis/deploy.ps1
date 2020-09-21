@@ -7,9 +7,8 @@ param(
 if ("" -eq "")
 {
     Write-Output "Key: $apiKey | Source: $source"
-    dotnet nuget push ./nupkgs/Georg.TestPackage.$tag.nupkg -k $apiKey -s $source
+    dotnet nuget push ./TestPackage/nupkgs/Georg.TestPackage.$tag.nupkg -k $apiKey -s $source
     Resolve-Path ./TestPackage/nupkgs/Georg.*.nupkg
-    Resolve-Path ./nupkgs/Georg.*.nupkg
 }
 else
 {
